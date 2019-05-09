@@ -36,15 +36,15 @@ steps:
 # Publish Test Results to Azure Pipelines/TFS
 - task: PublishTestResults@2
   inputs:
-    #testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    #testResultsFiles: '**/TEST-*.xml' 
+    testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+    testResultsFiles: '**/TEST-*.xml' 
     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
     #mergeTestResults: false # Optional
     #failTaskOnFailedTests: false # Optional
     #testRunTitle: # Optional
     #buildPlatform: # Optional
     #buildConfiguration: # Optional
-    #publishRunAttachments: true # Optional
+    publishRunAttachments: true # Optional
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)'
@@ -67,17 +67,17 @@ steps:
 
     StartupCommand: 'gunicorn --bind=0.0.0.0 --workers=4 startup:app'
 # This is the completed azure-pipelines.yaml file from previous steps.
-variables:
-  ConnectedServiceName: '<your-service-connection>'
-  WebAppName: 'msdocs-flaskpipelines'
+#variables:
+#  ConnectedServiceName: '<your-service-connection>'
+# WebAppName: 'msdocs-flaskpipelines'
 
-trigger:
-- master
+#trigger:
+#- master
 
-pool:
+#pool:
   name: Hosted Ubuntu 1604
 
-steps:
+#steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.6'
