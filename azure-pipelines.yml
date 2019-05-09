@@ -7,14 +7,14 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+- vmImage: 'ubuntu-latest'
 
 variables:
   # Replace this name with that of the Azure service connection in your DevOps project
-  ConnectedServiceName: '<your-service-connection>'
+- ConnectedServiceName: '<your-service-connection>'
 
   # Replace this name to match the name of the App Service you created earlier
-  WebAppName: 'msdocs-flaskpipelines'
+- WebAppName: 'msdocs-flaskpipelines'
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -67,17 +67,17 @@ steps:
 
     StartupCommand: 'gunicorn --bind=0.0.0.0 --workers=4 startup:app'
 # This is the completed azure-pipelines.yaml file from previous steps.
-#variables:
-#  ConnectedServiceName: '<your-service-connection>'
-# WebAppName: 'msdocs-flaskpipelines'
+variables:
+- ConnectedServiceName: '<your-service-connection>'
+ WebAppName: 'msdocs-flaskpipelines'
 
-#trigger:
-#- master
+trigger:
+- master
 
-#pool:
-  #name:  'Ubuntu-latest'
+pool:
+- name:  'Ubuntu 1604'
 
-#steps:
+steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.6'
