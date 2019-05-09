@@ -114,3 +114,10 @@ steps:
     # You may or may not need a startup command for your own app.
 
     StartupCommand: 'gunicorn --bind=0.0.0.0 --workers=4 startup:app'    
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    appType: 'webApp'
+    WebAppName: 
+
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
