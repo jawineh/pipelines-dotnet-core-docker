@@ -75,7 +75,7 @@ steps:
 #- master
 
 #pool:
-  name: Hosted Ubuntu 1604
+ # name: Hosted Ubuntu - latest
 
 #steps:
 - task: UsePythonVersion@0
