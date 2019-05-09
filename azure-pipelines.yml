@@ -75,7 +75,7 @@ steps:
 #- master
 
 #pool:
-  name: Hosted Ubuntu _ 1604
+  #name:  'Ubuntu-latest'
 
 #steps:
 - task: UsePythonVersion@0
@@ -99,7 +99,7 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/Application$(Build.BuildId).zip'
     replaceExistingArchive: true
-    verbose: # Optional
+    verbose: true # Optional
 
 - task: AzureRMWebAppDeployment@4
   displayName: Azure App Service Deploy
